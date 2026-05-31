@@ -1,9 +1,6 @@
 (function(){
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-  const normalize = (s) => (s || '').toLowerCase().normalize('NFKC');
-  const searchBox = $('#searchBox');
-  const result = $('#searchResult');
   const isSmallScreen = () => window.matchMedia('(max-width: 900px)').matches;
 
   // --- Mobile-friendly collapsible chapters ---
@@ -41,39 +38,6 @@
   $('#expandAll')?.addEventListener('click', () => setAllChapters(false));
   $('#collapseAll')?.addEventListener('click', () => setAllChapters(true));
 
-  // --- Fast section-level search ---
-  const sectionBlocks = $$('main > .section-block');
-  const docPanels = $$('.doc-panel');
-  const searchTargets = [...chapterSections, ...sectionBlocks];
-  const indexed = searchTargets.map(el => ({ el, text: normalize(el.textContent), parent: el.closest('.doc-panel') }));
-  let searchTimer = null;
-
-  function runSearch(){
-    const q = normalize(searchBox?.value.trim());
-    document.body.classList.toggle('searching', Boolean(q));
-    searchTargets.forEach(el => { el.classList.remove('hidden-by-search','search-hit','highlight-hit'); });
-    docPanels.forEach(el => el.classList.remove('hidden-by-search'));
-    if(!q){
-      result.textContent = '検索語を入力すると該当セクションを絞り込みます。';
-      return;
-    }
-    const hitParents = new Set();
-    let shown = 0;
-    indexed.forEach(({el,text,parent}) => {
-      const hit = text.includes(q);
-      el.classList.toggle('hidden-by-search', !hit);
-      el.classList.toggle('search-hit', hit);
-      if(hit){
-        shown++;
-        if(parent) hitParents.add(parent);
-        if(el.classList.contains('collapsible-section')) setCollapsed(el, false);
-      }
-    });
-    docPanels.forEach(panel => panel.classList.toggle('hidden-by-search', !hitParents.has(panel)));
-    result.textContent = shown ? `${shown} セクションがヒットしました。該当章は自動で開いています。` : '該当セクションは見つかりません。表記を変えて再検索してください。';
-  }
-  searchBox?.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(runSearch, 120); });
-  $('#clearSearch')?.addEventListener('click', () => { if(searchBox) searchBox.value=''; runSearch(); searchBox?.focus(); });
   $('#printPage')?.addEventListener('click', () => window.print());
 
   // --- Progress checkboxes ---
@@ -145,7 +109,6 @@
   $('#randomRule')?.addEventListener('click', () => jumpTo(randomFrom($$('#textbook .markdown-body section.level2 h2'))));
 
   // --- Mobile bottom nav helpers ---
-  $('#focusSearchMobile')?.addEventListener('click', () => { searchBox?.focus(); searchBox?.scrollIntoView({behavior:'smooth', block:'center'}); });
   $('#topMobile')?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
   $('#backToTop')?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 })();
