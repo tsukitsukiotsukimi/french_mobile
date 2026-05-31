@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#102a31">
   <meta name="description" content="スマホでサクサク学べる統合フランス語学習Web教材。教科書・100会話・600問題をオフラインで利用可能。">
-  <title>スマホ最適化版｜統合フランス語学習Web教材</title>
+  <title>スマホ集中版｜統合フランス語学習Web教材</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
       <div>
         <p class="eyebrow">Offline HTML / CSS / JS study page</p>
         <h1>実践フランス語 統合学習ページ<br><span class="title-sub">スマホ最適化版</span></h1>
-        <p class="lead">教科書・100会話・600題を、内容を保持したまま1つの学習用Webページに統合。図解、検索、章ジャンプ、学習チェックに加えて、スマホ向けの折りたたみ・下部ナビ・前回位置復帰・文字サイズ切替を追加しています。</p>
+        <p class="lead">教科書・100会話・600題を、内容を保持したまま1つの学習用Webページに統合。図解、章ジャンプ、学習チェックに加えて、スマホ向けの折りたたみ・下部ナビ・前回位置復帰・文字サイズ切替を追加しています。検索UIは学習の邪魔にならないよう削除しています。</p>
         <div class="hero-actions">
           <a href="#textbook" class="primary">学習を始める</a>
           <a href="#sources" class="secondary">元Markdown確認</a>
@@ -54,24 +54,25 @@
     </div>
   </header>
 
-  <aside class="toolbar" aria-label="学習ツールバー">
-    <label for="searchBox">教材内検索</label>
-    <input id="searchBox" type="search" placeholder="例: passé composé / Marine / restaurant / quand même">
-    <div class="toolbar-row">
+  <aside class="compact-controls" aria-label="表示操作">
+    <div>
+      <p class="eyebrow">Study controls</p>
+      <h2>表示操作</h2>
+      <p>本文に集中できるよう、検索バーは削除しました。必要な操作だけをここにまとめています。</p>
+    </div>
+    <div class="controls-row">
       <button id="expandAll">全章開く</button>
       <button id="collapseAll">全章閉じる</button>
-      <button id="clearSearch">検索解除</button>
       <button id="fontSizeToggle">文字サイズ</button>
       <button id="printPage">印刷/PDF</button>
     </div>
-    <p id="searchResult" class="search-result">検索語を入力すると該当セクションを絞り込みます。</p>
   </aside>
 
   <section id="mobile-guide" class="mobile-study-dock" aria-label="スマホ学習メニュー">
     <div class="mobile-dock-head">
       <p class="eyebrow">Mobile study mode</p>
       <h2>スマホでサクサク進める</h2>
-      <p>長い教材を、短時間で再開・検索・音読できるようにした操作パネルです。</p>
+      <p>長い教材を、短時間で再開・音読・演習できるようにした操作パネルです。</p>
     </div>
     <div class="quick-actions">
       <button id="continueReading" class="quick-button">前回位置へ</button>
@@ -82,7 +83,7 @@
     <div class="mobile-tips">
       <span>1章だけ開く</span>
       <span>音読は会話カード中心</span>
-      <span>検索は日本語・仏語どちらも可</span>
+      <span>本文は章単位で開閉</span>
       <span>前回位置は端末内に保存</span>
     </div>
   </section>
@@ -91,7 +92,6 @@
     <a href="#textbook">教科書</a>
     <a href="#dialogues">会話</a>
     <a href="#exercises">問題</a>
-    <button id="focusSearchMobile" type="button">検索</button>
     <button id="topMobile" type="button">上へ</button>
   </nav>
 
