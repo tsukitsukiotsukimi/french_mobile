@@ -1,0 +1,39 @@
+{
+  "title": "スマホ最適化版 統合フランス語学習Web教材",
+  "created_at": "2026-05-31",
+  "mobile_optimizations": [
+    "collapsible chapters",
+    "bottom navigation",
+    "restore last position",
+    "font size toggle",
+    "random jump",
+    "debounced section search",
+    "content-visibility rendering optimization"
+  ],
+  "files": {
+    "source_markdown/french_textbook.md": {
+      "bytes": 48391,
+      "sha256": "24d960ea575b5f6c18cf9a0a0589eb1a3c02bbb71f887f405f287a5f0ea06c32"
+    },
+    "source_markdown/french_100_dialogues.md": {
+      "bytes": 39733,
+      "sha256": "fe6b3e9efebd51815b8fa7a3c06c08f18e1429e61dd97bf99d627a5540773e5d"
+    },
+    "source_markdown/french_600_exercises.md": {
+      "bytes": 75224,
+      "sha256": "bc0daecacaf2e6cc03eb977a4e21a642bf422bd6777f52aa47d32cf556842acd"
+    },
+    "index.html": {
+      "bytes": 257572,
+      "sha256": "da3caa98fee208e8c1d40bd7eb99404cd6041dc4308b04ce7808f51bbc25b54e"
+    },
+    "styles.css": {
+      "bytes": 14407,
+      "sha256": "35a5a764660637ec49b6a08847a0a41d9378dccb716d452e1378795d4f63600f"
+    },
+    "script.js": {
+      "bytes": 7440,
+      "sha256": "e0c45ae684f8262c57bc8f63e72895282a1a7b4a23a06294e086c4814ce0c97c"
+    }
+  }
+}
